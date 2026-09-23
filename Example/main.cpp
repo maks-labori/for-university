@@ -2,13 +2,12 @@
 #include "Triangle.h"
 
 int main(){
-    std::setlocale(LC_ALL, "Russian");
-    std::cout << "Ведите стороны треугольника\n";
+    std::cout << "Input side triangle\n";
     double a, b, c;
     std::string input;
     int cnt = 1;
     while (cnt < 4) {
-        std::cout << "\nВведитe " << cnt << " сторону\n";
+        std::cout << "\nInput " << cnt << " side\n";
         std::getline(std::cin, input);
         try {
             switch (cnt) {
@@ -19,15 +18,15 @@ int main(){
             if (std::stod(input) <= 0) { throw std::logic_error(""); }
         }
         catch(...){
-            std::cout << "Неверный ввод,повторите попытку";
+            std::cout << "Uncorrect input,try again";
             continue;
         }
         cnt++;
     }
-    if (a + b < c or a + c < b or b + c < a) { std::cout << "Треугольника с такими сторонами е существует";return 0; }
+    if (a + b < c or a + c < b or b + c < a) { std::cout << "Triangle with these side is exist";return 0; }
     double x = (a * a + c * c - b * b) / (2 * a);
     double h = sqrt(c*c - x*x);
     Triangle triangle(a, h);
-    std::cout << "Площадь: " << triangle.area();
+    std::cout << "Area: " << triangle.calc_area();
     return 0;
 }

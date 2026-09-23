@@ -3,10 +3,10 @@
 Triangle::Triangle(double side, double height) :_side(side), _height(height) {
     if (side <= 0 or height <= 0) { throw std::logic_error("side or height > 0"); }
 }
-double Triangle::get_side() {
+double Triangle::get_side()const noexcept {
     return _side;
 }
-double Triangle::get_height() {
+double Triangle::get_height()const noexcept {
     return _height;
 }
 void Triangle::set_side(double side) {
@@ -25,6 +25,6 @@ void Triangle::set_height(double height) {
         throw std::logic_error("height > 0");
     }
 }
-double Triangle::area() {
+double Triangle::calc_area()const noexcept {
     return (_side * _height) / 2;
 }

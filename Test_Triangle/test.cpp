@@ -3,15 +3,15 @@
 #include "../TriangleLib/Triangle.h"
 
 TEST(Test_Triangle, TestConstructor) {
-	EXPECT_NO_THROW([]() {Triangle t1(3, 4);}());
+	EXPECT_NO_THROW({Triangle t1(3, 4);});
 
-	EXPECT_THROW([]() {Triangle t2(0, 2);}(), std::logic_error);
+	EXPECT_THROW({Triangle t2(0, 2);}, std::logic_error);
 
-	EXPECT_THROW([]() {Triangle t3(8, 0);}(), std::logic_error);
+	EXPECT_THROW({ Triangle t3(8, 0); }, std::logic_error);
 
-	EXPECT_THROW([]() {Triangle t4(0, 0);}(), std::logic_error);
+	EXPECT_THROW({ Triangle t4(0, 0); }, std::logic_error);
 
-	EXPECT_THROW([]() {Triangle t5(-1, -10);}(), std::logic_error);
+	EXPECT_THROW({Triangle t5(-1, -10);}, std::logic_error);
 }
 
 TEST(Test_Triangle, TestGeter) {
@@ -36,10 +36,10 @@ TEST(Test_Triangle, TestSeter) {
 	EXPECT_THROW(t1.set_height(-10),std::logic_error);
 }
 
-TEST(Test_Triangle, TestArea) {
+TEST(Test_Triangle, Testcalc_area) {
 	Triangle t1(3, 4);
-	EXPECT_EQ(t1.area(), 6);
+	EXPECT_EQ(t1.calc_area(), 6);
 
 	Triangle t2(10, 50);
-	EXPECT_EQ(t2.area(), 250);
+	EXPECT_EQ(t2.calc_area(), 250);
 }

@@ -9,9 +9,9 @@ private:
     double _height;
 public:
     Triangle(double side, double height);
-    double get_side();
-    double get_height();
+    double get_side()const noexcept;
+    double get_height()const noexcept;
     void set_side(double side);
     void set_height(double height);
-    double area();
+    double calc_area()const noexcept;
 };
